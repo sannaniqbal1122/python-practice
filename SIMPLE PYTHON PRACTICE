@@ -1,0 +1,262 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyP6GBZMCPoOQ2wB0qOZTABy",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sannaniqbal1122/python-practice/blob/main/SIMPLE%20PYTHON%20PRACTICE\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 4,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DDv7mJKNElJj",
+        "outputId": "2bc19113-a32d-400c-e969-21fe69404977"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter integer 1: 2\n",
+            "Enter integer 2: 2\n",
+            "Enter integer 3: 3\n",
+            "Enter integer 4: 4\n",
+            "Enter integer 5: 5\n",
+            "List: [2, 2, 3, 4, 5]\n",
+            "Sum: 16\n"
+          ]
+        }
+      ],
+      "source": [
+        "numbers = []\n",
+        "\n",
+        "for i in range(5):\n",
+        "    while True:\n",
+        "        try:\n",
+        "            value = int(input(f\"Enter integer {i + 1}: \"))\n",
+        "            numbers.append(value)\n",
+        "            break\n",
+        "        except ValueError:\n",
+        "            print(\"Invalid input. Please enter a single integer.\")\n",
+        "\n",
+        "total = sum(numbers)\n",
+        "\n",
+        "print(\"List:\", numbers)\n",
+        "print(\"Sum:\", total)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Program: Student grades dictionary with a function to add new students\n",
+        "\n",
+        "students = {\n",
+        "    \"Ali\": \"A\",\n",
+        "    \"Sara\": \"B\",\n",
+        "    \"Usman\": \"A-\"\n",
+        "}\n",
+        "\n",
+        "def add_student(records, name, grade):\n",
+        "    \"\"\"Add a new student and grade to the dictionary.\"\"\"\n",
+        "    if name in records:\n",
+        "        print(f\"{name} already exists. Use a different name.\")\n",
+        "    else:\n",
+        "        records[name] = grade\n",
+        "        print(f\"{name} added successfully.\")\n",
+        "\n",
+        "# Accept new student data from the user\n",
+        "name = input(\"Enter student name: \")\n",
+        "grade = input(\"Enter grade: \")\n",
+        "\n",
+        "add_student(students, name, grade)\n",
+        "\n",
+        "# Display all records\n",
+        "print(\"\\nStudent Records:\")\n",
+        "for student, g in students.items():\n",
+        "    print(f\"{student}: {g}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "h-9HdSFSGCbA",
+        "outputId": "24d5805d-c633-475e-94b5-ebeaf7e41007"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter student name: ALI\n",
+            "Enter grade: a\n",
+            "ALI added successfully.\n",
+            "\n",
+            "Student Records:\n",
+            "Ali: A\n",
+            "Sara: B\n",
+            "Usman: A-\n",
+            "ALI: a\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "def sort_list(numbers):\n",
+        "    \"\"\"Return a new list sorted in ascending order (bubble sort).\"\"\"\n",
+        "    result = numbers[:]\n",
+        "    n = len(result)\n",
+        "\n",
+        "    for i in range(n - 1):\n",
+        "        for j in range(n - 1 - i):\n",
+        "            if result[j] > result[j + 1]:\n",
+        "                result[j], result[j + 1] = result[j + 1], result[j]\n",
+        "\n",
+        "    return result\n",
+        "\n",
+        "values = list(map(int, input(\"Enter integers separated by spaces: \").split()))\n",
+        "\n",
+        "sorted_values = sort_list(values)\n",
+        "\n",
+        "print(\"Original list:\", values)\n",
+        "print(\"Sorted list:\", sorted_values)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "d60ppsckMOBQ",
+        "outputId": "604ab5d7-8a8f-4ad7-f565-711bbf9a3bdf"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter integers separated by spaces: 2 3 4 5 6 7 8 \n",
+            "Original list: [2, 3, 4, 5, 6, 7, 8]\n",
+            "Sorted list: [2, 3, 4, 5, 6, 7, 8]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "elements = (\"Hydrogen\", \"Helium\", \"Lithium\", \"Beryllium\", \"Boron\")\n",
+        "\n",
+        "print(\"First element:\", elements[0])\n",
+        "print(\"Third element:\", elements[2])\n",
+        "print(\"Last element:\", elements[-1])\n",
+        "\n",
+        "print(\"First three:\", elements[:3])\n",
+        "\n",
+        "print(\"\\nAll elements:\")\n",
+        "for index, name in enumerate(elements, start=1):\n",
+        "    print(f\"{index}. {name}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "17OZWXZHM3OO",
+        "outputId": "b50bf4af-ed93-4067-d984-46a228b458fa"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "First element: Hydrogen\n",
+            "Third element: Lithium\n",
+            "Last element: Boron\n",
+            "First three: ('Hydrogen', 'Helium', 'Lithium')\n",
+            "\n",
+            "All elements:\n",
+            "1. Hydrogen\n",
+            "2. Helium\n",
+            "3. Lithium\n",
+            "4. Beryllium\n",
+            "5. Boron\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def calculate_sum(num1, num2):\n",
+        "    \"\"\"Returns the sum of two numbers.\"\"\"\n",
+        "    return num1 + num2\n",
+        "\n",
+        "try:\n",
+        "    first_number = float(input(\"Enter the first number: \"))\n",
+        "    second_number = float(input(\"Enter the second number: \"))\n",
+        "\n",
+        "    result = calculate_sum(first_number, second_number)\n",
+        "    print(f\"The sum of {first_number} and {second_number} is: {result}\")\n",
+        "except ValueError:\n",
+        "    print(\"Invalid input. Please enter valid numbers.\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "s5zP0YJiNrC4",
+        "outputId": "7435fc37-a0af-42e2-cf14-a9026b7d7565"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the first number: 55\n",
+            "Enter the second number: 55\n",
+            "The sum of 55.0 and 55.0 is: 110.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "GSRmbSJ9Nrb2"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
